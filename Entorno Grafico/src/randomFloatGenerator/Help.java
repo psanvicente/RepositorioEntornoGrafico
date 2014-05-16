@@ -17,17 +17,24 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-
+/**
+ * Documentado por Pablo Sánchez Sanviente Clase que muestra información sobre
+ * como usar la aplicación
+ * 
+ * @author vith21
+ * @version 2.0
+ */
 public class Help extends JDialog {
 
-	
 	private static final long serialVersionUID = 1L;
-	
+
 	private final JPanel contentPanel = new JPanel();
-	
+
 	private JButton okButton;
 
-
+	/**
+	 * Método el cual ejecuta la aplicación
+	 */
 	public static void launch() {
 		try {
 			Help dialog = new Help();
@@ -38,18 +45,21 @@ public class Help extends JDialog {
 		}
 	}
 
+	/**
+	 * Crea el dialog
+	 */
 	public Help() {
 		setResizable(false);
 		setModalityType(ModalityType.APPLICATION_MODAL);
 		setModalExclusionType(ModalExclusionType.APPLICATION_EXCLUDE);
 		setTitle("Help");
 		setBounds(100, 100, 427, 347);
-		setBackground(new Color(153,204,204));
+		setBackground(new Color(153, 204, 204));
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setLayout(new FlowLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPanel.setBackground(new Color(153,204,204));
-		
+		contentPanel.setBackground(new Color(153, 204, 204));
+
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		{
 			JTextPane textPane = new JTextPane();
@@ -61,7 +71,7 @@ public class Help extends JDialog {
 		}
 		{
 			JPanel buttonPane = new JPanel();
-			
+
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
@@ -69,7 +79,7 @@ public class Help extends JDialog {
 				okButton.addKeyListener(new KeyAdapter() {
 					@Override
 					public void keyPressed(KeyEvent e) {
-						if(e.getKeyCode()==KeyEvent.VK_ENTER)
+						if (e.getKeyCode() == KeyEvent.VK_ENTER)
 							dispose();
 					}
 				});
@@ -83,7 +93,8 @@ public class Help extends JDialog {
 				getRootPane().setDefaultButton(okButton);
 			}
 		}
-		setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{okButton}));
+		setFocusTraversalPolicy(new FocusTraversalOnArray(
+				new Component[] { okButton }));
 	}
 
 }
